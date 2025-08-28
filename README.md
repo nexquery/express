@@ -9,7 +9,7 @@ npm install
 ```
 
 # Paketlerin Güncellenmesi
-Proje gereği yeni paket sürümleri çıkmış olabilir, bunları her zaman en son sürüme kurmak iyidir.
+Proje gereği yeni paket sürümleri çıkmış olabilir, bunları her zaman en son sürüme güncellemek iyidir.
 ```
 npm install -g npm-check-updates
 ncu
@@ -31,3 +31,10 @@ Projeyi developer modda başlatmak için
 ```
 npm run dev
 ```
+
+# Paket Listesi
+- express
+- typescript
+- dotenv
+- mysql2
+- jsonwebtoken
