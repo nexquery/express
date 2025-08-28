@@ -15,10 +15,14 @@ import 'dotenv/config';
 import apiRouter from './router';
 import express, { Application, Request, Response } from 'express';
 import { errorHandler, notFound } from './middleware/errorHandler';
+import { Database_Connect } from './utility/database';
+
+const API_URL = '/api';
 
 (async () =>
 {
     // Database Kurulumu Henüz Yok
+    await Database_Connect();
 
     // Expressin ayarlarını yapılandır
     const app: Application = express();
@@ -28,7 +32,7 @@ import { errorHandler, notFound } from './middleware/errorHandler';
     app.use(express.json());
 
     // End Point (127.0.0.1:3000/api/*)
-    app.use('/api', apiRouter);
+    app.use(API_URL, apiRouter);
 
     // Root End Point
     app.get('/', (req: Request, res: Response) =>
@@ -43,6 +47,6 @@ import { errorHandler, notFound } from './middleware/errorHandler';
     // Sunucuyu başlatma
     app.listen(PORT, () =>
     {
-        console.log(`Sunucu http://localhost:${PORT} adresinde çalışıyor.`);
+        console.log(`Sunucu http://127.0.0.1:${PORT}${API_URL}/ adresinde çalışıyor.`);
     });
 })();
