@@ -38,3 +38,4 @@ npm run dev
 - dotenv
 - mysql2
 - jsonwebtoken
+- bcrypt
