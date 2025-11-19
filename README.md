@@ -47,8 +47,7 @@ npm init -y
 ```
 Daha sonra gerekli paketleri kuralım.
 ```
-npm install -D typescript @types/node ts-node
-npm install nodemon --save-dev
+npm install -D typescript @types/node ts-node ts-node-dev
 npm install dotenv mysql2 express @types/express jsonwebtoken @types/jsonwebtoken bcrypt @types/bcrypt
 ```
 Şimdi TypeScript ayarlarını yapalım
@@ -115,7 +114,7 @@ npx tsc --init
     {
         "build": "tsc",
         "start": "ts-node dist/App.js",
-        "dev": "nodemon src/App.ts"
+        "dev": "ts-node-dev --respawn --transpile-only src/App.ts"
     },
     "keywords": [],
     "author": "",
@@ -126,14 +125,6 @@ npx tsc --init
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
     }
-}
-```
-**nodemon.json** dosyası oluşturup şunları ekleyelim
-```
-{
-    "watch": ["src"],
-    "ext": "ts",
-    "exec": "ts-node ./src/App.ts"
 }
 ```
 Son olarak **src** adında klasör oluşturup **App.ts** adında dosya oluşturup şunları ekleyelim
